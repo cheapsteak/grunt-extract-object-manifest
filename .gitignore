@@ -1,0 +1,7 @@
+.DS_STORE
+node_modules
+npm-debug.log
+tmp
+.tmp
+manifest.json
+manifest.nested.json
