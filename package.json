@@ -2,22 +2,22 @@
   "name": "grunt-threejs-model-manifest",
   "description": "Grunt task for threejs-model-manifest",
   "version": "0.1.0",
-  "homepage": "https://github.com/chang/grunt-extract-object-manifest",
+  "homepage": "https://github.com/chang/grunt-threejs-model-manifest",
   "author": {
     "name": "Chang Wang",
     "email": "garnwraly@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/chang/grunt-extract-object-manifest.git"
+    "url": "git://github.com/chang/grunt-threejs-model-manifest.git"
   },
   "bugs": {
-    "url": "https://github.com/chang/grunt-extract-object-manifest/issues"
+    "url": "https://github.com/chang/grunt-threejs-model-manifest/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/chang/grunt-extract-object-manifest/blob/master/LICENSE-MIT"
+      "url": "https://github.com/chang/grunt-threejs-model-manifest/blob/master/LICENSE-MIT"
     }
   ],
   "engines": {
