@@ -29,7 +29,7 @@ module.exports = function(grunt) {
     },
 
     // Configuration to be run (and then tested).
-    threejs_extract_manifest: {
+    threejs_model_manifest: {
       default_options: {
         options: {
           models: [
