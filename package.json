@@ -38,5 +38,8 @@
   },
   "keywords": [
     "gruntplugin"
-  ]
+  ],
+  "dependencies": {
+    "extract-object-manifest": "git://github.com/cheapsteak/extract-object-manifest"
+  }
 }
