@@ -16,15 +16,15 @@ module.exports = function(grunt) {
         var filename = jsonPath.substring(jsonPath.lastIndexOf('/') + 1, jsonPath.lastIndexOf('.'));
         var json = grunt.file.readJSON(jsonPath);
 
-        return { filename: extractObjectManifest(json) };
+        var manifest = {};
+        manifest[filename] = extractObjectManifest(json);
+        return manifest;
       })
       .reduce(function (a, b) {
         return _.extend(a, b);
       });
 
-    var flatManifests = nestedManifest.map(function (nested) {
-      return flattenKeys(nestedManifest, '');
-    });
+    var flatManifest = flattenKeys(nestedManifest, '');
 
     // console.log('flatt');
 
