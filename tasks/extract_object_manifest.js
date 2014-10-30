@@ -20,14 +20,17 @@ module.exports = function(grunt) {
         return _.extend(a, b);
       });
 
-    var flatManifest = flattenKeys(nestedManifest);
+    var flatManifest = flattenKeys(nestedManifest, '');
+
+    // console.log('flatt');
 
     // for now, output of manifests will be in same folder as first input file
     var firstFilePath = path.resolve(options.models[0]);
     var dest = firstFilePath.substring(0, firstFilePath.lastIndexOf('/'));
 
     grunt.file.write(dest + '/manifest.nested.json', JSON.stringify(nestedManifest, null, 2));
-    grunt.file.write(dest + '/manifest.json', JSON.stringify(flatManifest, null, 2));
+    grunt.file.write(dest + '/manifest.flat.json', JSON.stringify(flatManifest, null, 2));
+    // grunt.file.write(dest + '/manifest.select2.json', JSON.stringify(flatManifest, null, 2));
   });
 
 };

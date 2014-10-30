@@ -1,12 +1,24 @@
 var _ = require('lodash');
 
-module.exports = flattenKeys = function (obj) {
-  var keys = _.keys(obj);
-  if (keys.length) {
-    var childKeys = _.map(obj, flattenKeys).reduce(function (a, b) {
-      return a.concat(b)
+var flattenKeys = function (obj, namespace) {
+  // var currentNamespace = (namespace ? namespace + '.' : '');
+  var keys = _
+    .keys(obj)
+    .map(function (key) {
+      return namespace ? namespace + key : key;
     });
+
+  if (keys.length) {
+    var childKeys = _
+      .map(obj, function (child, childKey) {
+        return flattenKeys(child, namespace + childKey + '.');
+      })
+      .reduce(function (a, b) {
+        return a.concat(b)
+      });
     keys = keys.concat(childKeys);
   }
   return keys;
 };
+
+module.exports = flattenKeys;

@@ -4,4 +4,4 @@ npm-debug.log
 tmp
 .tmp
 manifest.json
-manifest.nested.json
+manifest.*.json
