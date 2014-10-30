@@ -21,7 +21,7 @@ module.exports = function(grunt) {
 
     var flatManifest = flattenKeys(nestedManifest);
 
-    // for now, output of manifest will be in same folder as first input file
+    // for now, output of manifests will be in same folder as first input file
     var firstFilePath = options.models[0]
     var dest = firstFilePath.substring(0, firstFilePath.lastIndexOf('/'));
 
