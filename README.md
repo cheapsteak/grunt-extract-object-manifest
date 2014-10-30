@@ -11,3 +11,5 @@ grunt.initConfig({
   },
 });
 ```
+
+[![NPM](https://nodei.co/npm/grunt-threerjs-model-manifest.png)](https://nodei.co/npm/grunt-threejs-model-manifest/)
