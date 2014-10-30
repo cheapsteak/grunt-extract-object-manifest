@@ -1,7 +1,7 @@
 {
   "name": "grunt-threejs-model-manifest",
   "description": "Grunt task for threejs-model-manifest",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "homepage": "https://github.com/chang/grunt-threejs-model-manifest",
   "author": {
     "name": "Chang Wang",
