@@ -24,7 +24,7 @@ module.exports = function(grunt) {
         return _.extend(a, b);
       });
 
-    var flatManifest = flattenKeys(nestedManifest, '');
+    var flatManifest = flattenKeys(nestedManifest);
 
     // console.log('flatt');
 
