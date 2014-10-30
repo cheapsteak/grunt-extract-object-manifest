@@ -1,6 +1,6 @@
 {
-  "name": "grunt-extract-object-manifest",
-  "description": "Grunt task for extract-object-manifest",
+  "name": "grunt-threejs-model-manifest",
+  "description": "Grunt task for threejs-model-manifest",
   "version": "0.1.0",
   "homepage": "https://github.com/chang/grunt-extract-object-manifest",
   "author": {
@@ -40,6 +40,6 @@
     "gruntplugin"
   ],
   "dependencies": {
-    "extract-object-manifest": "git://github.com/cheapsteak/extract-object-manifest"
+    "threejs-model-manifest": "1.0.0"
   }
 }

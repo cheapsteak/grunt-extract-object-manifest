@@ -1,5 +1,6 @@
 'use strict';
 
+var path = require('path');
 var _ = require('lodash');
 var extractObjectManifest = require('extract-object-manifest');
 var flattenKeys = require('../utils/flattenKeys');
@@ -22,7 +23,7 @@ module.exports = function(grunt) {
     var flatManifest = flattenKeys(nestedManifest);
 
     // for now, output of manifests will be in same folder as first input file
-    var firstFilePath = options.models[0]
+    var firstFilePath = path.resolve(options.models[0]);
     var dest = firstFilePath.substring(0, firstFilePath.lastIndexOf('/'));
 
     grunt.file.write(dest + '/manifest.nested.json', JSON.stringify(nestedManifest, null, 2));
