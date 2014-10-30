@@ -29,7 +29,7 @@ module.exports = function(grunt) {
     },
 
     // Configuration to be run (and then tested).
-    extract_object_manifest: {
+    threejs_extract_manifest: {
       default_options: {
         options: {
           models: [
@@ -57,8 +57,8 @@ module.exports = function(grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('run', ['clean', 'extract_object_manifest']);
-  grunt.registerTask('test', ['clean', 'extract_object_manifest', 'nodeunit']);
+  grunt.registerTask('run', ['clean', 'threejs_model_manifest']);
+  grunt.registerTask('test', ['clean', 'threejs_model_manifest', 'nodeunit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);
