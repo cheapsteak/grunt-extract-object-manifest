@@ -1,8 +1,7 @@
 var _ = require('lodash');
 
-var flattenKeys = function (obj, namespace, depth) {
+var flattenKeys = function (obj, namespace) {
   namespace = typeof namespace === 'undefined' ? '' : namespace;
-  depth = typeof depth === 'undefined' ? 0 : depth;
   var keys = _
     .keys(obj)
     .map(function (key) {
@@ -12,16 +11,12 @@ var flattenKeys = function (obj, namespace, depth) {
   if (keys.length) {
     var childKeys = _
       .map(obj, function (child, childKey) {
-        return flattenKeys(child, namespace + childKey + '/', depth + 1);
+        return flattenKeys(child, namespace + childKey + '/');
       })
       .reduce(function (a, b) {
         return a.concat(b)
       });
-    if (depth === 0) {
-      keys = childKeys;
-    } else {
-      keys = keys.concat(childKeys);
-    }
+    keys = keys.concat(childKeys);
   }
   return keys;
 };
