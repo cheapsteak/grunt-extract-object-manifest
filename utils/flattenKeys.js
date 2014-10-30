@@ -1,7 +1,6 @@
 var _ = require('lodash');
 
 var flattenKeys = function (obj, namespace) {
-  // var currentNamespace = (namespace ? namespace + '.' : '');
   var keys = _
     .keys(obj)
     .map(function (key) {
@@ -11,7 +10,7 @@ var flattenKeys = function (obj, namespace) {
   if (keys.length) {
     var childKeys = _
       .map(obj, function (child, childKey) {
-        return flattenKeys(child, namespace + childKey + '.');
+        return flattenKeys(child, namespace + childKey + '/');
       })
       .reduce(function (a, b) {
         return a.concat(b)
