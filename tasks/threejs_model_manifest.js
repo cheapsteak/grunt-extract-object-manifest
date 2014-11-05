@@ -22,8 +22,14 @@ module.exports = function(grunt) {
         var firstFilePath = path.resolve(options.models[0]);
         var dest = firstFilePath.substring(0, firstFilePath.lastIndexOf('/'));
 
-        grunt.file.write(dest + '/' + filename + '.manifest.nested.json', JSON.stringify(nested, null, 2));
-        grunt.file.write(dest + '/' + filename + '.manifest.flat.json', JSON.stringify(flat, null, 2));
+        var nestedPath = dest + '/' + filename + '.manifest.nested.json';
+        var flatPath = dest + '/' + filename + '.manifest.flat.json';
+        if(nestedPath.lastIndexOf('/') == 0) nestedPath = nestedPath.substring(1, nestedPath.length);
+        if(flatPath.lastIndexOf('/') == 0) flatPath = flatPath.substring(1, flatPath.length);
+        nestedPath = path.normalize(nestedPath);
+        flatPath = path.normalize(flatPath);
+        grunt.file.write(nestedPath, JSON.stringify(nested, null, 2));
+        grunt.file.write(flatPath, JSON.stringify(flat, null, 2));
       });
   });
 
