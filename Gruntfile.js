@@ -33,9 +33,10 @@ module.exports = function(grunt) {
       default_options: {
         options: {
           models: [
-            'test/fixtures/3dmodel.dae',
-            'test/fixtures/3dmodel2.dae'
-          ]
+            'test/fixtures/1/3dmodel.dae',
+            'test/fixtures/2/3dmodel2.dae'
+          ],
+          depth: 2
         }
       }
     },

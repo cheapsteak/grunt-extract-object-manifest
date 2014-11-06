@@ -11,23 +11,20 @@ module.exports = function(grunt) {
     var options = this.options();
 
     _(options.models).each(function (daePath) {
+        daePath = path.normalize(daePath);
         var jsonPath = daePath.replace(/.dae$/,'.json');
-        var filename = jsonPath.substring(jsonPath.lastIndexOf('/') + 1, jsonPath.lastIndexOf('.'));
+        var pathDelimiter = process.platform === "win32" ? '\\' : '/';
+        var filename = jsonPath.substring(jsonPath.lastIndexOf(pathDelimiter) + 1, jsonPath.lastIndexOf('.'));
         var json = grunt.file.readJSON(jsonPath);
 
-        var nested = extractObjectManifest(json);
+        var nested = extractObjectManifest(json, options.depth);
         var flat = flattenKeys(nested);
 
-        // for now, output of manifests will be in same folder as first input file
-        var firstFilePath = path.resolve(options.models[0]);
-        var dest = firstFilePath.substring(0, firstFilePath.lastIndexOf('/'));
+        var outputPath = path.resolve(daePath);
+        var dest = outputPath.substring(0, outputPath.lastIndexOf(pathDelimiter));
 
-        var nestedPath = dest + '/' + filename + '.manifest.nested.json';
-        var flatPath = dest + '/' + filename + '.manifest.flat.json';
-        if(nestedPath.lastIndexOf('/') == 0) nestedPath = nestedPath.substring(1, nestedPath.length);
-        if(flatPath.lastIndexOf('/') == 0) flatPath = flatPath.substring(1, flatPath.length);
-        nestedPath = path.normalize(nestedPath);
-        flatPath = path.normalize(flatPath);
+        var nestedPath = dest + pathDelimiter + filename + '.manifest.nested.json';
+        var flatPath = dest + pathDelimiter + filename + '.manifest.flat.json';
         grunt.file.write(nestedPath, JSON.stringify(nested, null, 2));
         grunt.file.write(flatPath, JSON.stringify(flat, null, 2));
       });

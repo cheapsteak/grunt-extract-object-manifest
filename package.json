@@ -40,6 +40,6 @@
     "gruntplugin"
   ],
   "dependencies": {
-    "threejs-model-manifest": "1.0.0"
+    "threejs-model-manifest": "^1.1.0"
   }
 }
